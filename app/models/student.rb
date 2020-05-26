@@ -26,6 +26,12 @@ class Student < ActiveRecord::Base
     new_session.session_id = session.id 
     new_session.student_id = self.id 
     new_session.save
+    new_session
+  end
+
+  def delete_session(classroom)
+    session_bad = view_sessions.find_by("classroom: classroom ")
+    session_bad.delete 
   end
 
 end
