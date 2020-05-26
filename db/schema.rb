@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200526191757) do
+ActiveRecord::Schema.define(version: 20200526225239) do
+
+  create_table "announcements", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+  end
+
+  create_table "bulletin_boards", force: :cascade do |t|
+    t.integer "announcement_id"
+    t.integer "teacher_id"
+  end
 
   create_table "classrooms", force: :cascade do |t|
     t.integer "student_id"
@@ -27,6 +37,19 @@ ActiveRecord::Schema.define(version: 20200526191757) do
   create_table "students", force: :cascade do |t|
     t.string  "name"
     t.integer "grade"
+  end
+
+  create_table "study_group_sessions", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "study_group_id"
+  end
+
+  create_table "study_groups", force: :cascade do |t|
+    t.string   "location"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "subject"
+    t.string   "remarks"
   end
 
   create_table "teachers", force: :cascade do |t|
