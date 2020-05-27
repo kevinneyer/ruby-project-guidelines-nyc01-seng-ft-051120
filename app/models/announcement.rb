@@ -3,7 +3,7 @@ class Announcement < ActiveRecord::Base
   has_many :teachers, through: :bulletin_boards
 
   def self.new_announcement
-     Announcment.last
+     Announcement.last
   end
 
   def self.all_announcements

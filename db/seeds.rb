@@ -5,6 +5,12 @@ Teacher.delete_all
 Student.delete_all
 Session.delete_all
 Classroom.delete_all
+Announcement.delete_all
+BulletinBoard.delete_all
+StudyGroupSession.delete_all
+StudyGroup.delete_all
+
+
 
 t0=Teacher.create(user_name: "dd", password:"123",name: "Joe",subject:"English")
 t1=Teacher.create(name: "Kelly",subject:"Social Studies")
