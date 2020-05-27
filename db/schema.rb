@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200527153605) do
+ActiveRecord::Schema.define(version: 20200527204534) do
 
   create_table "announcements", force: :cascade do |t|
     t.string "title"
@@ -29,9 +29,7 @@ ActiveRecord::Schema.define(version: 20200527153605) do
   end
 
   create_table "sessions", force: :cascade do |t|
-    t.string   "location"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.string "location"
   end
 
   create_table "students", force: :cascade do |t|
@@ -48,11 +46,9 @@ ActiveRecord::Schema.define(version: 20200527153605) do
   end
 
   create_table "study_groups", force: :cascade do |t|
-    t.string   "location"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.string   "subject"
-    t.string   "remarks"
+    t.string "location"
+    t.string "subject"
+    t.string "remarks"
   end
 
   create_table "teachers", force: :cascade do |t|
