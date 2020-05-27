@@ -7,28 +7,32 @@ class Teacher < ActiveRecord::Base
     Teacher.all  
   end
 
-  def my_sessions
-     Session.all.select do |sessions|
-       sessions.teacher == self
+  def my_sessions #returning dupicates. maybe check?
+    empty = []
+    Classroom.all.each do |sessions|
+       if sessions.teacher == self
+        empty << sessions.session  
+       end
       end
+      empty
     end
 
-    def my_students
+    def my_students #returning duplicates. check
       my_sessions.map do |ses|
-        ses.student
+        ses.students 
       end
     end
 
-    def grade_student(student_id, gpa)
-      my_students.each do |student|
-        if student.id==student_id
-          student.gpa=gpa
-          student.save 
+    def grade_student(student_id, gpa) #funny
+      Classroom.all.each do |student|
+        if student.student.id==student_id && student.teacher == self
+          student.student.gpa=gpa
+          student.student.save 
           end
         end    
       end
 
-      def student_gpas
+      def student_gpas  #funny
         my_students.map do |st|
           "#{st.name}: #{st.gpa}" 
         end
@@ -39,11 +43,13 @@ class Teacher < ActiveRecord::Base
       end
       
       def my_announcement
-        BulletinBoard.all.select do |board|
+        announcement_array = []
+        BulletinBoard.all.each do |board|
          if board.teacher_id==self.id
-          board.announcement
-        end
+         announcement_array << board.announcement
+         end
+       end
+       announcement_array
       end
-    end
 
 end

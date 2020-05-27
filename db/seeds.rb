@@ -45,12 +45,12 @@ sg4=StudyGroup.create(location: "34b", subject: "Maths 101", remarks: "bring wat
 sg5=StudyGroup.create(location: "34b", subject: "History 101", remarks: "bring snacks!")
 sg6=StudyGroup.create(location: "2828p", subject: "Social 101", remarks: "bring snacks!")
 
-sgs0=StudyGroupSession.create(:student_id: s0.id, study_group_id: sg7.id)
-sgs0=StudyGroupSession.create(:student_id: s1.id, study_group_id: sg7.id)
-sgs0=StudyGroupSession.create(:student_id: s2.id, study_group_id: sg7.id)
-sgs0=StudyGroupSession.create(:student_id: s3.id, study_group_id: sg2.id)
-sgs0=StudyGroupSession.create(:student_id: s4.id, study_group_id: sg2.id)
-sgs0=StudyGroupSession.create(:student_id: s5.id, study_group_id: sg2.id)
+sgs0=StudyGroupSession.create(student_id: s0.id, study_group_id: sg7.id)
+sgs0=StudyGroupSession.create(student_id: s1.id, study_group_id: sg7.id)
+sgs0=StudyGroupSession.create(student_id: s2.id, study_group_id: sg7.id)
+sgs0=StudyGroupSession.create(student_id: s3.id, study_group_id: sg2.id)
+sgs0=StudyGroupSession.create(student_id: s4.id, study_group_id: sg2.id)
+sgs0=StudyGroupSession.create(student_id: s5.id, study_group_id: sg2.id)
 
 an0=Announcement.create(title: "Leadership Work Shop", content: "Leadership workshop content")
 an1=Announcement.create(title: "Talent Show", content: "Talent Show content")

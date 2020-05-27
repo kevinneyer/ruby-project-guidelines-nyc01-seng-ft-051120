@@ -31,21 +31,23 @@ class Student < ActiveRecord::Base
     teachers
   end
 
-  def add_session(session, teacher, classroom)
+  def add_session(session, teacher)
     # Classroom.new(student: self, teacher_id: )
-    new_session = Classroom.all.find(classroom.id)
-    new_session.teacher_id = teacher.id
-    new_session.session_id = session.id 
-    new_session.student_id = self.id 
-    new_session.save
-    new_session
+    # new_session = Classroom.all.find(classroom.id)
+    # new_session.teacher_id = teacher.id
+    # new_session.session_id = session.id 
+    # new_session.student_id = self.id 
+    # new_session.save
+    # new_session
+     new_s = Classroom.create(session_id: session.id, teacher_id: teacher.id, student_id: self.id)
+     new_s 
   end
 
-  def delete_session(classroom)
-    session_bad = view_sessions.find_by("classroom: classroom ")
-    session_bad.delete
-    session_bad.save 
-  end
+  # def delete_session(classroom)
+  #   session_bad = view_sessions.find_by("classroom: classroom ")
+  #   session_bad.delete
+  #   session_bad.save 
+  # end
 
   def my_group_session
     StudyGroupSession.all.select do |group_session|
@@ -61,6 +63,7 @@ class Student < ActiveRecord::Base
   def join_study_group_session(study_group)
     StudyGroupSession.create(student_id: self.id, study_group_id: study_group.id)
   end
+  
   def my_result
     if self.gpa<2.0
       "Your current GPA is: #{self.gpa}, You need to boost your grades! Result: failed!"
