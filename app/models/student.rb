@@ -4,19 +4,31 @@ class Student < ActiveRecord::Base
   has_many :teachers, through: :classrooms
   
   def self.whole_school
-    self.all
+    
+    self.all.map do |student|
+     student.name
+    end
+
   end
 
   def view_sessions #possible helper for view sessions times/schedule
-    Session.all.select do |instance|
-    instance.student == self
+    ses=[]
+    Classroom.all.each do |instance|
+    if instance.student_id == self.id
+       ses<<[instance.session.id, instance.session.location]
     end
+  end
+  ses
   end
 
   def view_teachers
-    view_sessions.map do |session|
-        session.teacher
+    teachers=[]
+    Classroom.all.each do |session|
+      if session.student_id==self.id
+        teachers<<session.teacher
+      end
     end
+    teachers
   end
 
   def add_session(session, teacher, classroom)
@@ -35,7 +47,6 @@ class Student < ActiveRecord::Base
     session_bad.save 
   end
 
-<<<<<<< HEAD
   def my_group_session
     StudyGroupSession.all.select do |group_session|
         group_session.student == self
@@ -50,7 +61,6 @@ class Student < ActiveRecord::Base
   def join_study_group_session(study_group)
     StudyGroupSession.create(student_id: self.id, study_group_id: study_group.id)
   end
-=======
   def my_result
     if self.gpa<2.0
       "Your current GPA is: #{self.gpa}, You need to boost your grades! Result: failed!"
@@ -64,6 +74,5 @@ class Student < ActiveRecord::Base
     end
   end
 
->>>>>>> 3e92e685052db3de4c6a6e0e17fa288ac8f83acc
 
 end
