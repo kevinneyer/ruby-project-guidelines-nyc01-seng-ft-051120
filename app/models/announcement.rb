@@ -10,4 +10,5 @@ class Announcement < ActiveRecord::Base
     Announcement.all
   end
 
+
 end
