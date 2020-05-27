@@ -31,9 +31,11 @@ class Student < ActiveRecord::Base
 
   def delete_session(classroom)
     session_bad = view_sessions.find_by("classroom: classroom ")
-    session_bad.delete 
+    session_bad.delete
+    session_bad.save 
   end
 
+<<<<<<< HEAD
   def my_group_session
     StudyGroupSession.all.select do |group_session|
         group_session.student == self
@@ -48,5 +50,20 @@ class Student < ActiveRecord::Base
   def join_study_group_session(study_group)
     StudyGroupSession.create(student_id: self.id, study_group_id: study_group.id)
   end
+=======
+  def my_result
+    if self.gpa<2.0
+      "Your current GPA is: #{self.gpa}, You need to boost your grades! Result: failed!"
+    else "Your current GPA is: #{self.gpa}, keep up the good work! Result: Wow Passed!"
+    end
+  end
+
+  def self.top_student
+    Student.all.select do |st|
+      st.gpa > 3.5
+    end
+  end
+
+>>>>>>> 3e92e685052db3de4c6a6e0e17fa288ac8f83acc
 
 end
