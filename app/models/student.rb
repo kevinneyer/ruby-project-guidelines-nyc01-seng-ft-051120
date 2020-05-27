@@ -34,4 +34,19 @@ class Student < ActiveRecord::Base
     session_bad.delete 
   end
 
+  def my_group_session
+    StudyGroupSession.all.select do |group_session|
+        group_session.student == self
+    end
+  end
+
+  def create_study_group(location, subject)
+    group = StudyGroup.create(location: location, subject: subject)
+    join_study_group_session(group)
+  end
+
+  def join_study_group_session(study_group)
+    StudyGroupSession.create(student_id: self.id, study_group_id: study_group.id)
+  end
+
 end
