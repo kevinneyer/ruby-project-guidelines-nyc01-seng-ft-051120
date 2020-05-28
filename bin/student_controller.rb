@@ -5,8 +5,9 @@ class StudentController
         @student=student
         run
     end
+    
     def run
-      puts "Welcome! Please select what you like to do!"
+      puts "Welcome! Please select what you'd like to do!"
         while true do
           puts "1. View my class sessions"
           puts "2. View my Teachers"
@@ -47,6 +48,7 @@ class StudentController
           subject=gets.chomp.to_s
           student.create_study_group(location, subject)
         end
+      
       def exit_app
         puts "Goodbye!"
       end
