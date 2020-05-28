@@ -82,9 +82,15 @@ class Student < ActiveRecord::Base
   end
 
   def self.top_student
-    Student.all.select do |st|
-      st.gpa > 3.5
+    a=[]
+    Student.all.each do |st|
+      if st.gpa
+      if st.gpa > 3.5
+        a << ["Name: #{st.name}, GPA: #{st.gpa}"]
+      end
     end
+    end
+    a.sort
   end
 
 
