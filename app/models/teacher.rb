@@ -7,6 +7,19 @@ class Teacher < ActiveRecord::Base
     Teacher.all  
   end
 
+  def self.login(user, password)
+    if Teacher.find_by(user_name: user)
+      if Teacher.find_by(user_name: user).password == password
+      puts "Login Successful!"
+    else
+      puts "Incorrect Password"
+    end
+    else
+      puts "No user found" 
+    end
+   return  Teacher.find_by(user_name: user)
+end
+
   def my_sessions 
     empty = []
     Classroom.all.each do |sessions|

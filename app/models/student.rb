@@ -60,13 +60,17 @@ class Student < ActiveRecord::Base
   
 
   def my_group_session
-    StudyGroupSession.all.select do |group_session|
-        group_session.student == self
-    end
+    empty_group = []
+    StudyGroupSession.all.each do |group_session|
+        if group_session.student == self
+        empty_group << "#{group_session.study_group.location}, #{group_session.study_group.subject}, #{group_session.study_group.remarks}"
+        end
+     end
+     empty_group
   end
 
-  def create_study_group(location, subject)
-    group = StudyGroup.create(location: location, subject: subject)
+  def create_study_group(location, subject, remarks)
+    group = StudyGroup.create(location: location, subject: subject, remarks: remarks)
     join_study_group_session(group)
   end
 
