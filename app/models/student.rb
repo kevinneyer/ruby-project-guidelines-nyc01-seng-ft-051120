@@ -3,6 +3,24 @@ class Student < ActiveRecord::Base
   has_many :sessions, through: :classrooms
   has_many :teachers, through: :classrooms
   
+  def self.login(user, password)
+    if Student.find_by(user_name: user)
+      if Student.find_by(user_name: user).password == password
+      puts "Login Successful!"
+    else
+      puts "Incorrect Password"
+    end
+    else
+      puts "No user found" 
+    end
+    Student.find_by(user_name: user)
+  end
+
+  def self.sign_up(name, grade, gpa, user_name, password)
+    Student.create(name: name, grade: grade, user_name: user_name, password: password)
+    puts "Register successful, #{name}"
+  end
+  
   def self.whole_school
     
     self.all.map do |student|
@@ -11,7 +29,7 @@ class Student < ActiveRecord::Base
 
   end
 
-  def view_sessions #possible helper for view sessions times/schedule
+  def view_sessions 
     ses=[]
     Classroom.all.each do |instance|
     if instance.student_id == self.id
