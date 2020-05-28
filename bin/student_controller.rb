@@ -1,8 +1,9 @@
 require_relative '../config/environment'
 class StudentController
-    attr_accessor :student
-    def initialize(student)
+    attr_accessor :student, :st
+    def initialize(st)
         @student=student
+        @st=st
         run
     end
     def run
@@ -19,13 +20,13 @@ class StudentController
             response = gets.chomp
             case response 
             when "1"
-             puts "\n******************************\n #{student.view_sessions} \n***************************"
+             puts "\n******************************\n \n #{st.view_sessions} \n\n***************************"
             when "2"
-               puts student.view_teachers
+               puts st.view_teachers
             when "3"
-                puts student.my_result
+                puts st.my_result
             when "4"
-                puts student.my_group_session
+                puts st.my_group_session
             when "5"
                 join_group
 
@@ -45,10 +46,10 @@ class StudentController
         location=gets.chomp.to_s
         puts "what do you want to study in group session?"
           subject=gets.chomp.to_s
-          student.create_study_group(location, subject)
+          st.create_study_group(location, subject)
         end
       def exit_app
-        puts "Goodbye!"
+        puts "You are logged out from Student"
       end
 
 
