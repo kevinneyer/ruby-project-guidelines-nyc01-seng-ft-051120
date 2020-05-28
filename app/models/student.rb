@@ -1,3 +1,4 @@
+require 'pry'
 class Student < ActiveRecord::Base
   has_many :classrooms
   has_many :sessions, through: :classrooms
@@ -13,7 +14,8 @@ class Student < ActiveRecord::Base
     else
       puts "No user found" 
     end
-    Student.find_by(user_name: user)
+   return  Student.find_by(user_name: user)
+    
   end
 
   def self.sign_up(name, grade, gpa, user_name, password)
@@ -30,20 +32,21 @@ class Student < ActiveRecord::Base
   end
 
   def view_sessions 
+   
     ses=[]
     Classroom.all.each do |instance|
     if instance.student_id == self.id
-       ses<<[instance.session.id, instance.session.location]
+       ses<<["Your session is in classroom number #{instance.session.location}, don't get lost!"]
     end
   end
   ses
   end
-
-  def view_teachers
+   
+   def view_teachers
     teachers=[]
     Classroom.all.each do |session|
       if session.student_id==self.id
-        teachers<<session.teacher
+        teachers<<" name: #{session.teacher.name}, subject: #{session.teacher.subject}"
       end
     end
     teachers
