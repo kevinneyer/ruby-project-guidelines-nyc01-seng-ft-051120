@@ -37,8 +37,8 @@ se4=Session.create(location: "4c")
 se5=Session.create(location: "5a")
 
 Classroom.create(student_id: s0.id, teacher_id: t0.id, session_id: se0.id)
-Classroom.create(student_id: s4.id, teacher_id: t1.id , session_id: se0.id)
-Classroom.create(student_id: s3.id, teacher_id: t3.id, session_id: se0.id)
+Classroom.create(student_id: s4.id, teacher_id: t0.id , session_id: se0.id)
+Classroom.create(student_id: s3.id, teacher_id: t0.id, session_id: se0.id)
 Classroom.create(student_id: s2.id, teacher_id: t2.id, session_id: se1.id)
 Classroom.create(student_id: s1.id, teacher_id: t4.id, session_id: se1.id)
 

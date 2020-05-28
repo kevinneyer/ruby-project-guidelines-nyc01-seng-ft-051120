@@ -12,19 +12,21 @@ def run
       #  sign_in
       response = gets.chomp
       case response
+      
       when "1"
        teacher
       when "2"
        student
       when "exit"
-        exit_app
+        
         break
       else
         puts "No command exists!"
       end
-    end
+    end 
+    
   end
-
+  puts "See you again!"
   def student
     while true do 
       puts "1. Sign in"
@@ -37,7 +39,8 @@ def run
       when "2"
         student_sign_up
       when "3"
-        run
+        break
+        else  puts "No command exists!"
       end
     end
   end
@@ -81,7 +84,8 @@ def run
       when "2"
         teacher_sign_up
       when "3"
-        run
+        break
+        else  puts "No command exists!"
       end
     end
   end
@@ -111,13 +115,8 @@ def run
 
    TeacherController.new(teach)
   end
-  
-
-  def exit_app
-    puts "Goodbye!"
-  end
-
-    run
+  run
+   
     # students
     # help 
 

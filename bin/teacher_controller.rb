@@ -34,7 +34,6 @@ class TeacherController
               when "6"
                 puts Student.top_student
               when "7"
-              exit_app
               break
               end
           end
@@ -45,7 +44,9 @@ class TeacherController
           title = gets.chomp.to_s 
           puts "Enter your post content here:"
           content = gets.chomp.to_s
-          Announcement.create(title: title, content: content) 
+          an=Announcement.create(title: title, content: content)
+          puts "The following announcement is posted" 
+          "Title: #{an.title}\nContent: #{an.content}"
         end
 
 

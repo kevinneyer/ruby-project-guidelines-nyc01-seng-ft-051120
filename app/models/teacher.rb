@@ -2,6 +2,8 @@ class Teacher < ActiveRecord::Base
   has_many :classrooms
   has_many :sessions, through: :classrooms
   has_many :students, through: :classrooms
+  has_many :bulletin_boards
+  has_many :announcements, through: :bulletin_boards
 
   def self.all_teachers
     Teacher.all  
@@ -21,19 +23,23 @@ class Teacher < ActiveRecord::Base
 end
 
   def my_sessions 
-    empty = []
+    empty = ''
     Classroom.all.each do |sessions|
        if sessions.teacher == self
-        empty << sessions.session  
+        empty += "Your session is in classroom number #{sessions.session.location}  "
        end
       end
       empty
     end
 
     def my_students 
-      my_sessions.map do |ses|
-        ses.students 
+      st=''
+      Classroom.all.each do |sessions|
+        if sessions.teacher == self
+        st += "name: #{sessions.student.name} grade: #{sessions.student.grade}\n"
       end
+    end
+    st
     end
 
     def grade_student(s_id, gpa) 
@@ -49,23 +55,27 @@ end
       end
 
       def student_gpas 
-        my_students[0].map do |st|
-          "#{st.name}: #{st.gpa}" 
+        st=''
+      Classroom.all.each do |sessions|
+        if sessions.teacher == self
+          st += "name: #{sessions.student.name} GPA: #{sessions.student.gpa}\n"
         end
       end
+      st
+    end
 
       def new_announcement(text, name)
         Announcement.create(title:name, content:text)
       end
       
       def my_announcement
-        announcement_array = []
-        BulletinBoard.all.each do |board|
-         if board.teacher_id==self.id
-         announcement_array << board.announcement
-         end
-       end
-       announcement_array
+       an = []
+       BulletinBoard.all.each do |board|
+        if board.teacher_id==self.id
+          an << board.announcement
+        end
+      end
+      an
       end
 
 end
