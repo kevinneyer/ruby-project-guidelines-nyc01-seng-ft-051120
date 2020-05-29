@@ -9,33 +9,34 @@ class StudentController
     
     def run
       puts "\n-----------------------------------------\n"
-      puts "Welcome! Please select what you'd like to do!"
+      puts "\nWelcome! Please select what you'd like to do!"
+      puts "Please select from the following options using numbers 1 - 8 as input."
        puts "\n-----------------------------------------\n"
         while true do
-          puts "\n-----------------------------------------\n"
-          puts "1. View my class sessions"
-          puts "\n-----------------------------------------\n"
-          puts "2. View my Teachers"
-          puts "\n-----------------------------------------\n"
-          puts "3. Show my grades"
-          puts "\n-----------------------------------------\n"
-          puts "4. Show study group sessions"
-          puts "\n-----------------------------------------\n"
-          puts "5. Create study group session"
-          puts "\n-----------------------------------------\n"
-          puts "6. See top student"
-          puts "\n-----------------------------------------\n"
-          puts "7. See all student"
-          puts "\n-----------------------------------------\n"
-          puts "8. Logout of student"
-          puts "\n-----------------------------------------\n"
+         
+          puts "\n1.) View my class sessions"
+          
+          puts "2.) View my Teachers"
+         
+          puts "3.) Show my grades"
+      
+          puts "4.) Show study group sessions"
+          
+          puts "5.) Create study group session"
+         
+          puts "6.) See top student"
+          
+          puts "7.) See all student"
+          
+          puts "8.) Logout of student"
+         
           
             response = gets.chomp
             case response 
             when "1"
-            puts "\n-----------------------------------------\n"
+            puts "\n******************************\n "
             puts "\n #{st.view_sessions} \n"
-            puts "\n-----------------------------------------\n"
+            puts "\n******************************\n "
             when "2"
               puts "\n******************************\n "
                puts st.view_teachers
@@ -80,7 +81,7 @@ class StudentController
         end
       
       def exit_app
-        puts "\nYou are now logged out of user.\n"
+        puts "You are now logged out of user.\n"
       end
 
 
