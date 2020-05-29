@@ -33,25 +33,40 @@ class TeacherController
               response = gets.chomp
               case response 
               when "1"
-               puts "\n******************************"
+               puts "\n******************************\n "
+               if teach.my_sessions
                puts "\n #{teach.my_sessions} \n"
-               puts "\n******************************"
+               else puts  "You have no seesions \n Please contact admin to add session"
+               puts "\n***************************"
+               end
               when "2"
                 puts "\n******************************\n"
+                if teach.my_students
                  puts teach.my_students
-                 puts "******************************\n"
+                else
+                puts "You have no student now \n Please contact admin to add session"
+                 puts "\n******************************\n"
+                end
               when "3"
                 puts "\n******************************\n"
+                if  teach.student_gpas
                   puts teach.student_gpas
-                puts "******************************\n"
+                else 
+                  puts "You have no student now \n Please contact admin to add session"
+                  puts "\n******************************\n"
+                end
               when "4"
                 puts "\n******************************\n"
                   puts announcement
                 puts "\n******************************\n"
+              
               when "5"
-                puts "******************************\n"
+                puts "\n******************************\n"
+                if teach.my_announcement
                   puts teach.my_announcement
-                  puts "******************************\n"
+                else puts "You have no student now \n Please contact admin to add session"
+                  puts "\n******************************\n"
+                end
               when "6"
                 puts "\n******************************\n"
                 puts Student.top_student

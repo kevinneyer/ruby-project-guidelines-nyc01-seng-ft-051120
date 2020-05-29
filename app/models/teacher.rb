@@ -10,16 +10,18 @@ class Teacher < ActiveRecord::Base
   end
 
   def self.login(user, password)
+    
     if Teacher.find_by(user_name: user)
       if Teacher.find_by(user_name: user).password == password
       puts "\nLogin Successful!\n"
+      return  Teacher.find_by(user_name: user)
     else
-      puts "Incorrect Password"
+      puts "Incorrect Password, Please try again"
     end
     else
       puts "No user found" 
     end
-   return  Teacher.find_by(user_name: user)
+   
 end
 
   def my_sessions 

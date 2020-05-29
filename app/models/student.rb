@@ -8,13 +8,14 @@ class Student < ActiveRecord::Base
     if Student.find_by(user_name: user)
       if Student.find_by(user_name: user).password == password
       puts "\nLogin Successful!\n"
+      return  Student.find_by(user_name: user)
     else
-      puts "Incorrect Password"
+      puts "Incorrect Password, Please try again!"
     end
     else
       puts "No user found" 
     end
-   return  Student.find_by(user_name: user)
+   
     
   end
 
