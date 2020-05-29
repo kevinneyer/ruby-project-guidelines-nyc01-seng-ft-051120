@@ -49,7 +49,9 @@ class StudentController
                 puts st.my_group_session
                 puts "\n******************************\n "
             when "5"
+              puts " " 
                 join_group
+                puts " "
             when "6"
               puts "\n******************************\n "
               puts Student.top_student
@@ -66,19 +68,19 @@ class StudentController
             end
         end
       end
-      
+
     def join_group
-      puts "where do you want to have your group session?"
+      puts "Where do you want to have your study group session?"
         location=gets.chomp.to_s
-        puts "what do you want to study in group session?"
+        puts "What subject do you want to study?"
           subject=gets.chomp.to_s
-        puts "any remarks for your friends?"  
+        puts "Any remarks for your classmates?"  
           remarks = gets.chomp.to_s
           st.create_study_group(location, subject, remarks)
         end
       
       def exit_app
-        puts "You are now logged out of Student. Type \"exit\" to leave the program."
+        puts "\nYou are now logged out of user.\n"
       end
 
 

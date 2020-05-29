@@ -12,7 +12,7 @@ class Teacher < ActiveRecord::Base
   def self.login(user, password)
     if Teacher.find_by(user_name: user)
       if Teacher.find_by(user_name: user).password == password
-      puts "Login Successful!"
+      puts "\nLogin Successful!\n"
     else
       puts "Incorrect Password"
     end
@@ -23,10 +23,10 @@ class Teacher < ActiveRecord::Base
 end
 
   def my_sessions 
-    empty = ''
+    empty = "Your session(s) are in the following:"
     Classroom.all.each do |sessions|
        if sessions.teacher == self
-        empty += "Your session is in classroom number #{sessions.session.location}  "
+        empty += " classroom number #{sessions.session.location}, "
        end
       end
       empty
@@ -36,7 +36,7 @@ end
       st=''
       Classroom.all.each do |sessions|
         if sessions.teacher == self
-        st += "name: #{sessions.student.name} grade: #{sessions.student.grade}\n"
+        st += "name: #{sessions.student.name}, grade: #{sessions.student.grade}\n"
       end
     end
     st

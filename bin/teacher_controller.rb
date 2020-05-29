@@ -56,6 +56,7 @@ class TeacherController
                 puts Student.top_student
                 puts "\n******************************\n"
               when "7"
+                exit_app
               break
               end
           end
@@ -71,6 +72,11 @@ class TeacherController
           puts "The following announcement is posted" 
           "Title: #{an.title}\nContent: #{an.content}"
         end
+
+        def exit_app
+          puts "\nYou are now logged out of user.\n"
+        end
+  
 
 
      
