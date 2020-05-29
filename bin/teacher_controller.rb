@@ -13,6 +13,9 @@ class TeacherController
       puts "\nWelcome! Please select what you'd like to do!"
       puts "Please select from the following options using numbers 1 - 7 as input."
        puts "\n-----------------------------------------\n"
+       puts "\n-----------------------------------------\n"
+       puts "#{teach.name}, #{teach.subject} teacher"
+       puts "\n-----------------------------------------\n"
           while true do
            
             puts "\n1. View my class sessions"

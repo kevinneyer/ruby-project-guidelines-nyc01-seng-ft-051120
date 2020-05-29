@@ -12,6 +12,8 @@ class StudentController
       puts "\nWelcome! Please select what you'd like to do!"
       puts "Please select from the following options using numbers 1 - 8 as input."
        puts "\n-----------------------------------------\n"
+       puts "name: #{st.name}, grade: #{st.grade}"
+       puts "\n-----------------------------------------\n"
         while true do
          
           puts "\n1.) View my class sessions"

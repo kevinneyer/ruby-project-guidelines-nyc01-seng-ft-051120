@@ -72,10 +72,13 @@ def run
     username = gets.chomp.to_s
     puts "Choose a password"
     password = gets.chomp.to_s
+    if Student.find_by(user_name: username)
+      puts "\n #{username} is already taken, please choose another one!\n"
+    else 
    stud  = Student.create(name: name, grade: grade, user_name: username, password: password) 
    puts "\nYou are successfully registered!\n"
-
    StudentController.new(stud)
+    end
   end
 
 
@@ -124,10 +127,13 @@ def run
     username = gets.chomp.to_s
     puts "create password:"
     password = gets.chomp.to_s
+    if Teacher.find_by(user_name: username)
+      puts "\n#{username} is already choosen, please try another one!\n"
+    else
    teach  = Teacher.create(name: name, subject: subject, user_name: username, password: password) 
    puts "\nYou are successfully registered!\n"
-
    TeacherController.new(teach)
+    end
   end
   
   run
