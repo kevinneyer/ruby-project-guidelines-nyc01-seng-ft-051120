@@ -17,7 +17,7 @@ class StudentController
           puts "5. Create study group session"
           puts "6. See top student"
           puts "7. See all student"
-          puts "8. Logout"
+          puts "8. Logout of student"
           
             response = gets.chomp
             case response 

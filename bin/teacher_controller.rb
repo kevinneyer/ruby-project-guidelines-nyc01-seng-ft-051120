@@ -17,7 +17,7 @@ class TeacherController
             puts "4. Create a bulletin board announcement"
             puts "5. View all of my announcements"
             puts "6. See school's top students"
-            puts "7. Logout"
+            puts "7. Logout out of teacher"
             
               response = gets.chomp
               case response 

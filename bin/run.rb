@@ -23,7 +23,7 @@ def run
         puts "No command exists!"
       end
     end 
-    puts "See you again!"
+    puts "\nSee you again soon!"
   end
 
   def student
@@ -49,13 +49,13 @@ def run
   
   def student_sign_in
     puts "username:"
-      user = gets.strip.to_s
-      puts "password"
-      password = gets.chomp.to_s
-      s=Student.login(user, password)
-      if s
-      StudentController.new(s)
-      end
+    user = gets.strip.to_s
+    puts "password"
+    password = gets.chomp.to_s
+    s=Student.login(user, password)
+    if s
+    StudentController.new(s)
+    end
   end
 
   def student_sign_up
@@ -77,31 +77,32 @@ def run
   def teacher
     puts "\n******************************\n Welcome Teacher! \n******************************\n"
     while true do 
-      puts "1. Sign in"
-      puts "2. Sign up"
-      puts "3. Return to Home Page"
+      puts "1.)Sign in\n2.)Sign up\n3.)Return to Home Page"
       response = gets.chomp.to_s
       case response
       when "1"
+       puts "\nPlease enter Username and Password to Login.\n"
         teacher_sign_in
       when "2"
+        puts "\nPlease create account providing: Name, Subject, Username and Password.\n"
         teacher_sign_up
       when "3"
         break
-        else  puts "No command exists!"
+        else  
+          puts "No command exists!"
       end
     end
   end
 
   def teacher_sign_in
     puts "user:"
-      user = gets.strip.to_s
-      puts "password"
-      password = gets.chomp.to_s
-      t=Teacher.login(user, password)
-      if t
-      TeacherController.new(t)
-      end
+    user = gets.strip.to_s
+    puts "password"
+    password = gets.chomp.to_s
+    t=Teacher.login(user, password)
+    if t
+    TeacherController.new(t)
+    end
   end
 
   def teacher_sign_up
