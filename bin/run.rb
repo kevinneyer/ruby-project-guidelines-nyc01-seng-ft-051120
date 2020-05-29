@@ -121,6 +121,8 @@ def run
     t=Teacher.login(user, password)
     if t
     TeacherController.new(t)
+    else
+    teacher
     end
   end
 
