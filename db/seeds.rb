@@ -70,6 +70,6 @@ an3=Announcement.create(title: "Mothers' Day", content: "Mothers' Day content")
 an4=Announcement.create(title: "Independence Day!", content: "Independence Day!content")
 an5=Announcement.create(title: "Career Seesion", content: "Career Seesion content")
 
-BulletinBoard.create(teacher_id: t1.id, announcement_id: an0.id)
-BulletinBoard.create(teacher_id: t1.id, announcement_id: an1.id)
+BulletinBoard.create(teacher_id: t0.id, announcement_id: an0.id)
+BulletinBoard.create(teacher_id: t0.id, announcement_id: an1.id)
 BulletinBoard.create(teacher_id: t1.id, announcement_id: an2.id)
