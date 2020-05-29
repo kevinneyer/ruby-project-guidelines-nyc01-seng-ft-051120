@@ -30,13 +30,13 @@ class Student < ActiveRecord::Base
   end
 
   def view_sessions 
-    ses=''
+    ses = "Your session(s) are in the following: "
     Classroom.all.each do |instance|
     if instance.student_id == self.id
-       ses +="Your session is in classroom number #{instance.session.location}. Don't get lost!"
+       ses += "classroom number #{instance.session.location}. "
     end
   end
-  ses
+  ses + "Don't get lost!"
   end
    
    def view_teachers

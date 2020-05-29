@@ -23,10 +23,10 @@ class Teacher < ActiveRecord::Base
 end
 
   def my_sessions 
-    empty = ''
+    empty = "Your session(s) are in the following:"
     Classroom.all.each do |sessions|
        if sessions.teacher == self
-        empty += "Your session is in classroom number #{sessions.session.location}  "
+        empty += " classroom number #{sessions.session.location}, "
        end
       end
       empty

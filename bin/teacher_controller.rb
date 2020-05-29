@@ -10,8 +10,9 @@ class TeacherController
 
     def run
         puts "\nWelcome! Please select what you'd like to do!"
-        puts "Please select from the following options using numbers 1 - 7 as input.\n"
+        
           while true do
+            puts "Please select from the following options using numbers 1 - 7 as input.\n"
             puts "\n1.) View my class sessions"
             puts "2.) View my students"
             puts "3.) Show my students' grades"
@@ -25,21 +26,27 @@ class TeacherController
               when "1"
                 puts " "
                puts "#{teach.my_sessions}"
+               puts " "
               when "2"
                 puts " "
                  puts teach.my_students
+                 puts " "
               when "3"
                 puts " "
                   puts teach.student_gpas
+                  puts " "
               when "4"
                 puts " "
                   puts announcement
+                  puts " "
               when "5"
                 puts " "
                   puts teach.my_announcement
+                  puts " "
               when "6"
                 puts " "
                 puts Student.top_student
+                puts " "
               when "7"
                 exit_app
               break

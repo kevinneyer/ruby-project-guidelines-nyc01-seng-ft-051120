@@ -77,7 +77,7 @@ def run
     while true do 
       puts "\n******************************\n Welcome Teacher! \n******************************\n"
       puts "\nPlease select from the following options using numbers 1 - 3 as input."
-      puts "1.)Sign in\n2.)Sign up\n3.)Return to Home Page"
+      puts "1.) Sign in\n2.) Sign up\n3.) Return to Home Page"
       response = gets.chomp.to_s
       case response
       when "1"
