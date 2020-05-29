@@ -1,6 +1,6 @@
 # Welcome to our School Portal CLI Application
 
-For this Application, we wanted to give students and teachers a platfom to be able to stay up to date with their personal school matters
+For this Application, we wanted to give students and teachers a platfom to be able to stay up to date with their personal school matters.
 
 ## Repository
 https://github.com/kevinneyer/ruby-project-guidelines-nyc01-seng-ft-051120.git

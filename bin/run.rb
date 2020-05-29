@@ -7,10 +7,9 @@ require 'pry'
 def run
     puts "\n******************************\n Welcome to our School Portal! \n******************************\n"
     while true do
-      puts "Please sign in as either a Teacher or Student."
+      puts "\nPlease sign in as either a Teacher or Student."
       puts "Please select from the following options using numbers 1 - 3 as input."
       puts "1.) Teacher\n2.) Student\n3.) Exit "
-      #  sign_in
       response = gets.chomp
       case response
       when "1"
@@ -20,16 +19,16 @@ def run
       when "3"
         break
       else
-        puts "No command exists!"
+        puts "\nNo command exists!\n"
       end
     end 
     puts "\nSee you again soon!"
   end
 
   def student
-    puts "\n******************************\n Welcome Student! \n******************************\n"
     while true do 
-      puts "Please select from the following options using numbers 1 - 3 as input."
+      puts "\n******************************\n Welcome Student! \n******************************\n"
+      puts "\nPlease select from the following options using numbers 1 - 3 as input."
       puts "1.) Sign in\n2.) Sign up\n3.) Return to Home Page"
       response = gets.chomp.to_s
       case response
@@ -42,7 +41,7 @@ def run
       when "3"
         break
         else 
-         puts "No command exists!"
+         puts "\nNo command exists!\n"
       end
     end
   end
@@ -68,15 +67,16 @@ def run
     puts "create password:"
     password = gets.chomp.to_s
    stud  = Student.create(name: name, grade: grade, user_name: username, password: password) 
-   puts "You are successfully registered!"
+   puts "\nYou are successfully registered!\n"
 
    StudentController.new(stud)
   end
 
 
   def teacher
-    puts "\n******************************\n Welcome Teacher! \n******************************\n"
     while true do 
+      puts "\n******************************\n Welcome Teacher! \n******************************\n"
+      puts "\nPlease select from the following options using numbers 1 - 3 as input."
       puts "1.)Sign in\n2.)Sign up\n3.)Return to Home Page"
       response = gets.chomp.to_s
       case response
@@ -89,7 +89,7 @@ def run
       when "3"
         break
         else  
-          puts "No command exists!"
+          puts "\nNo command exists!\n"
       end
     end
   end
@@ -115,13 +115,10 @@ def run
     puts "create password:"
     password = gets.chomp.to_s
    teach  = Teacher.create(name: name, subject: subject, user_name: username, password: password) 
-   puts "You are successfully registered!"
+   puts "\nYou are successfully registered!\n"
 
    TeacherController.new(teach)
   end
+  
   run
-   
-    # students
-    # help 
-
-# puts "HELLO WORLD"
+  

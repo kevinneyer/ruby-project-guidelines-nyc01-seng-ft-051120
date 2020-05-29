@@ -10,6 +10,7 @@ class TeacherController
 
     def run
         puts "Welcome! Please select what you'd like to do!"
+        puts "Please select from the following options using numbers 1 - 7 as input."
           while true do
             puts "1. View my class sessions"
             puts "2. View my students"
@@ -34,6 +35,7 @@ class TeacherController
               when "6"
                 puts Student.top_student
               when "7"
+                exit_app
               break
               end
           end
@@ -45,9 +47,14 @@ class TeacherController
           puts "Enter your post content here:"
           content = gets.chomp.to_s
           an=Announcement.create(title: title, content: content)
-          puts "The following announcement is posted" 
+          puts "\nThe following announcement is posted\n" 
           "Title: #{an.title}\nContent: #{an.content}"
         end
+
+        def exit_app
+          puts "\nYou are now logged out of user.\n"
+        end
+  
 
 
      

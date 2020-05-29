@@ -24,19 +24,16 @@ class Student < ActiveRecord::Base
   end
   
   def self.whole_school
-    
     self.all.map do |student|
      student.name
     end
-
   end
 
   def view_sessions 
-   
     ses=''
     Classroom.all.each do |instance|
     if instance.student_id == self.id
-       ses +="Your session is in classroom number #{instance.session.location}, don't get lost!"
+       ses +="Your session is in classroom number #{instance.session.location}. Don't get lost!"
     end
   end
   ses
@@ -80,8 +77,8 @@ class Student < ActiveRecord::Base
   
   def my_result
     if self.gpa<2.0
-      "Your current GPA is: #{self.gpa}, You need to boost your grades! Result: failed!"
-    else "Your current GPA is: #{self.gpa}, keep up the good work! Result: Wow Passed!"
+      "Your current GPA is #{self.gpa}. Result: Failing. You need to boost your grades!"
+    else "Your current GPA is #{self.gpa}. Result: Passing. Keep up the good work!"
     end
   end
 
