@@ -8,35 +8,60 @@ class StudentController
     end
     
     def run
+      puts "\n-----------------------------------------\n"
       puts "Welcome! Please select what you'd like to do!"
+       puts "\n-----------------------------------------\n"
         while true do
+          puts "\n-----------------------------------------\n"
           puts "1. View my class sessions"
+          puts "\n-----------------------------------------\n"
           puts "2. View my Teachers"
+          puts "\n-----------------------------------------\n"
           puts "3. Show my grades"
+          puts "\n-----------------------------------------\n"
           puts "4. Show study group sessions"
+          puts "\n-----------------------------------------\n"
           puts "5. Create study group session"
+          puts "\n-----------------------------------------\n"
           puts "6. See top student"
+          puts "\n-----------------------------------------\n"
           puts "7. See all student"
-          puts "8. Logout"
+          puts "\n-----------------------------------------\n"
+          puts "8. Logout of student"
+          puts "\n-----------------------------------------\n"
           
             response = gets.chomp
             case response 
             when "1"
-             puts "\n******************************\n \n #{st.view_sessions} \n\n***************************"
+            puts "\n-----------------------------------------\n"
+            puts "\n #{st.view_sessions} \n"
+            puts "\n-----------------------------------------\n"
             when "2"
+              puts "\n******************************\n "
                puts st.view_teachers
+               puts "\n******************************\n "
             when "3"
+              puts "\n******************************\n "
                 puts st.my_result
+                puts "\n******************************\n "
             when "4"
+              puts "\n******************************\n "
                 puts st.my_group_session
+                puts "\n******************************\n "
             when "5"
                 join_group
             when "6"
+              puts "\n******************************\n "
               puts Student.top_student
+              puts "\n******************************\n "
             when "7"
+              puts "\n******************************\n "
              puts  Student.whole_school
+             puts "\n******************************\n "
             when "8"
+              puts "\n******************************\n "
             exit_app
+            puts "\n******************************\n "
             break
             end
         end
