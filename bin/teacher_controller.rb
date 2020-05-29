@@ -45,6 +45,7 @@ class TeacherController
           puts "Enter your post content here:"
           content = gets.chomp.to_s
           an=Announcement.create(title: title, content: content)
+          BulletinBoard.create(announcement_id: an.id, teacher_id: teach.id)
           puts "The following announcement is posted" 
           "Title: #{an.title}\nContent: #{an.content}"
         end

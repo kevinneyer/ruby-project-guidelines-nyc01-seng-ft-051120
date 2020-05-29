@@ -69,11 +69,13 @@ end
       end
       
       def my_announcement
-       an = []
+       an = ""
        BulletinBoard.all.each do |board|
         if board.teacher_id==self.id
-          an << board.announcement
+          an += "Title: #{board.announcement.title} \nContent: #{board.announcement.content}\n\n\n"
+          
         end
+       
       end
       an
       end
