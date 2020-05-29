@@ -9,30 +9,36 @@ class TeacherController
     end
 
     def run
-        puts "Welcome! Please select what you'd like to do!"
-        puts "Please select from the following options using numbers 1 - 7 as input."
+        puts "\nWelcome! Please select what you'd like to do!"
+        puts "Please select from the following options using numbers 1 - 7 as input.\n"
           while true do
-            puts "1. View my class sessions"
-            puts "2. View my students"
-            puts "3. Show my students' grades"
-            puts "4. Create a bulletin board announcement"
-            puts "5. View all of my announcements"
-            puts "6. See school's top students"
-            puts "7. Logout out of teacher"
+            puts "\n1.) View my class sessions"
+            puts "2.) View my students"
+            puts "3.) Show my students' grades"
+            puts "4.) Create a bulletin board announcement"
+            puts "5.) View all of my announcements"
+            puts "6.) See school's top students"
+            puts "7.) Logout out of teacher"
             
               response = gets.chomp
               case response 
               when "1"
-               puts "\n******************************\n \n #{teach.my_sessions} \n\n***************************"
+                puts " "
+               puts "#{teach.my_sessions}"
               when "2"
+                puts " "
                  puts teach.my_students
               when "3"
+                puts " "
                   puts teach.student_gpas
               when "4"
+                puts " "
                   puts announcement
               when "5"
+                puts " "
                   puts teach.my_announcement
               when "6"
+                puts " "
                 puts Student.top_student
               when "7"
                 exit_app
@@ -47,7 +53,7 @@ class TeacherController
           puts "Enter your post content here:"
           content = gets.chomp.to_s
           an=Announcement.create(title: title, content: content)
-          puts "\nThe following announcement is posted\n" 
+          puts "\nThe following announcement is posted:\n" 
           "Title: #{an.title}\nContent: #{an.content}"
         end
 

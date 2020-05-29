@@ -7,7 +7,7 @@ class Student < ActiveRecord::Base
   def self.login(user, password)
     if Student.find_by(user_name: user)
       if Student.find_by(user_name: user).password == password
-      puts "Login Successful!"
+      puts "\nLogin Successful!\n"
     else
       puts "Incorrect Password"
     end
